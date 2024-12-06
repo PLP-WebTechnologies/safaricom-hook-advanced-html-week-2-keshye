@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multimedia Webpage</title>
+    <title>User Registration Form</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -14,38 +14,83 @@
         h1 {
             text-align: center;
         }
-        .multimedia {
-            margin-bottom: 40px;
-            text-align: center;
+        .form-container {
+            max-width: 400px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        audio, video {
+        .form-container label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        .form-container input[type="text"],
+        .form-container input[type="email"],
+        .form-container input[type="password"],
+        .form-container input[type="number"] {
             width: 100%;
-            max-width: 600px;
+            padding: 10px;
+            margin-bottom: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
+        }
+        .form-container input[type="radio"],
+        .form-container input[type="checkbox"] {
+            margin-right: 5px;
+        }
+        .form-container input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-container input[type="submit"]:hover {
+            background-color: #218838;
         }
     </style>
 </head>
 <body>
 
-    <h1>Welcome to the Multimedia Webpage</h1>
+    <h1>User Registration Form</h1>
 
-    <div class="multimedia">
-        <h2>Audio Player</h2>
-        <audio controls>
-            <source src="audio-file.mp3" type="audio/mpeg">
-            <source src="audio-file.ogg" type="audio/ogg">
-            Your browser does not support the audio element.
-        </audio>
-    </div>
+    <div class="form-container">
+        <form action="#" method="post" id="registrationForm">
+            <label for="fullName">Full Name:</label>
+            <input type="text" id="fullName" name="fullName" required maxlength="50">
 
-    <div class="multimedia">
-        <h2>Video Player</h2>
-        <video controls poster="poster- image.png">
-            <source src="video-file.mp4" type="video/mp4">
-            <source src="video -file.webcam" type="video/webm">
-            Your browser does not support the video tag.
-        </video>
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required minlength="8">
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" min="18" required>
+
+            <fieldset>
+                <legend>Gender:</legend>
+                <label>
+                    <input type="radio" name="gender" value="male" required> Male
+                </label>
+                <label>
+                    <input type="radio" name="gender" value="female" required> Female
+                </label>
+                <label>
+                    <input type="radio" name="gender" value="other" required> Other
+                </label>
+            </fieldset>
+
+            <label>
+                <input type="checkbox" name="terms" required> I agree to the Terms and Conditions
+            </label>
+
+            <input type="submit" value="Register">
+        </form>
     </div>
 
 </body>
